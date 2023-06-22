@@ -9,7 +9,9 @@ import colors from 'colors'
 import morgan from 'morgan'
 import connectDB from './config/db.js'
 import errorHandler from './middleware/errorMiddleware.js'
-
+import authorRoutes from './routes/authorRoutes.js'
+import blogRoutes from './routes/blogRoutes.js'
+import commentRoutes from './routes/commentRoutes.js'
 dotenv.config()
 
 // database connected
@@ -31,12 +33,14 @@ app.get('/home', (req, res) => {
   res.send('Api is running')
 })
 
-app.use(errorHandler)
-
 app.get('/', (req, res) => {
   res.send('Api running...')
 })
+app.use('/api/author/', authorRoutes)
+app.use('/api/blog/', blogRoutes)
+app.use('/api/comment/', commentRoutes)
 
+app.use(errorHandler)
 // const port
 const PORT = process.env.PORT || 8232
 

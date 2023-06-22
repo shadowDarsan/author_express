@@ -1,15 +1,17 @@
 import mongoose from 'mongoose'
 
-const authorSchema = mongoose.Schema({
-  fullname: {
-    type: String,
-    required: true,
+const authorSchema = mongoose.Schema(
+  {
+    fullName: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
   },
-  email: {
-    type: String,
-    required: true,
-  },
-})
+  { timestamps: true }
+)
 
-const Author = mongoose.model('Author', authorSchema)
-export default Author
+export const AuthorModel = mongoose.model('Author', authorSchema)

@@ -1,33 +1,37 @@
 import mongoose from 'mongoose'
 
-const blogSchema = mongoose.Schema({
-  title: {
-    type: String,
-    required: true,
+const blogSchema = mongoose.Schema(
+  {
+    title: {
+      type: String,
+      required: true,
+    },
+    content: {
+      type: String,
+      required: true,
+    },
+    author: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: false,
+      ref: 'Author',
+    },
+    co_Author: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: false,
+      ref: 'Author',
+    },
+    likes_count: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
+    view_count: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
   },
-  content: {
-    type: String,
-    required: true,
-  },
-  author: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-    ref: 'Author',
-  },
-  co_Author: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: false,
-    ref: 'Author',
-  },
-  likes_count: {
-    type: Number,
-    required: false,
-  },
-  view_count: {
-    type: Number,
-    required: false,
-  },
-})
+  { timestamps: true }
+)
 
-const Blog = mongoose.model('Blog', blogSchema)
-export default Blog
+export const BlogModel = mongoose.model('Blog', blogSchema)
