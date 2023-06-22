@@ -44,11 +44,10 @@ By developing this blogging application, you will create a robust backend system
 
 1. Make sure you have Node.js and npm installed on your system.
 2. Run the following command to install the required Node.js modules:
+
    ```shell
    npm install
    ```
-
-````
 
 3. Rename the `sample.env` file to `.env` and add your own MongoDB URI to the file.
 
@@ -64,7 +63,4 @@ Each route supports different HTTP methods for different operations. Please refe
 
 Feel free to explore the endpoints and interact with the application by making HTTP requests based on your requirements.
 
-```
-
 Please let me know if you need any further modifications or additions to the README file!
-````
